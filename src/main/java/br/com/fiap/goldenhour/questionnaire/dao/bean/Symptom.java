@@ -1,9 +1,12 @@
 package br.com.fiap.goldenhour.questionnaire.dao.bean;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,50 +21,70 @@ public class Symptom {
 
 	private String name;
 	private String description;
-	private String location;
-	private String intensity;
-	private String duration;
-	private Long score;
 	
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "locationId")
+	private PainLocation location;
+	
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "intensityId")
+	private PainIntensity intensity;
+	
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "durationId")
+	private SymptomDuration duration;
+	
+	private Long score;
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getLocation() {
+
+	public PainLocation getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
+
+	public void setLocation(PainLocation location) {
 		this.location = location;
 	}
-	public String getIntensity() {
+
+	public PainIntensity getIntensity() {
 		return intensity;
 	}
-	public void setIntensity(String intensity) {
+
+	public void setIntensity(PainIntensity intensity) {
 		this.intensity = intensity;
 	}
-	public String getDuration() {
+
+	public SymptomDuration getDuration() {
 		return duration;
 	}
-	public void setDuration(String duration) {
+
+	public void setDuration(SymptomDuration duration) {
 		this.duration = duration;
 	}
+
 	public Long getScore() {
 		return score;
 	}
+
 	public void setScore(Long score) {
 		this.score = score;
 	}
+
 	public Long getId() {
 		return id;
 	}
-	
-	
 }

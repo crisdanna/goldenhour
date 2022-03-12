@@ -1,3 +1,1 @@
-INSERT INTO public.patient_health(
-	id, age, date, "time", patient_id)
-	VALUES (?, ?, ?, ?, ?);
+INSERT INTO public.patient_health(age, date, "time", patient_id) VALUES (38, '2022-01-15', '18:00', 2);
