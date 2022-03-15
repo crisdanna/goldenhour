@@ -1,6 +1,6 @@
 # Golden Hour
 
-This application is composed by 5 microservices and 1 message consumer. It stores its data in a PostgreSQL database and the messaging service is RabbitMQ.
+This application is composed by 2 services and 1 message consumer. It stores its data in a PostgreSQL database and the messaging service is RabbitMQ.
 
 In order to get everything running, from the root of the project execute:
 docker-compose up -d

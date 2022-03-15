@@ -40,6 +40,10 @@ public class EmergencyScore {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Long getMinScore() {
 		return minScore;
 	}

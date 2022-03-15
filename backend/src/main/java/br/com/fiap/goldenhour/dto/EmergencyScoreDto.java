@@ -1,6 +1,7 @@
 package br.com.fiap.goldenhour.dto;
 
 public class EmergencyScoreDto {
+	private Long id;
 	private Long score;
 	private String scoreDescription;
 	private String scoreLevel;
@@ -22,5 +23,12 @@ public class EmergencyScoreDto {
 	}
 	public void setScoreLevel(String scoreLevel) {
 		this.scoreLevel = scoreLevel;
-	}	
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

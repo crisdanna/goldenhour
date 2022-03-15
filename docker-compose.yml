@@ -18,7 +18,7 @@ services:
     volumes:
       - ./sql/address_create.sql:/docker-entrypoint-initdb.d/01-address_create.sql
       - ./sql/patient_create.sql:/docker-entrypoint-initdb.d/02-patient_create.sql
-      - ./sql/patient_addresses_create.sql:/docker-entrypoint-initdb.d/03-patient_addresses_create.sql
+      - ./sql/patient_address_create.sql:/docker-entrypoint-initdb.d/03-patient_address_create.sql
       - ./sql/condition_create.sql:/docker-entrypoint-initdb.d/04-condition_create.sql
       - ./sql/patient_health_create.sql:/docker-entrypoint-initdb.d/05-patient_health_create.sql
       - ./sql/patient_health_conditions_create.sql:/docker-entrypoint-initdb.d/06-patient_health_conditions_create.sql
@@ -31,7 +31,7 @@ services:
       - ./sql/emergency_score_create.sql:/docker-entrypoint-initdb.d/13-emergency_score_create.sql
       - ./sql/address_insert.sql:/docker-entrypoint-initdb.d/14-address_insert.sql
       - ./sql/patient_insert.sql:/docker-entrypoint-initdb.d/15-patient_insert.sql
-      - ./sql/patient_addresses_insert.sql:/docker-entrypoint-initdb.d/16-patient_addresses_insert.sql
+      - ./sql/patient_address_insert.sql:/docker-entrypoint-initdb.d/16-patient_address_insert.sql
       - ./sql/condition_insert.sql:/docker-entrypoint-initdb.d/17-condition_insert.sql
       - ./sql/patient_health_insert.sql:/docker-entrypoint-initdb.d/18-patient_health_insert.sql
       - ./sql/patient_health_conditions_insert.sql:/docker-entrypoint-initdb.d/19-patient_health_conditions_insert.sql

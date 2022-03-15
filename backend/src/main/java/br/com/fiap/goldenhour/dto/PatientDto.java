@@ -13,6 +13,10 @@ public class PatientDto{
 	
 	private List<AddressDto> addresses;
 	
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getId() {
 		return id;
 	}

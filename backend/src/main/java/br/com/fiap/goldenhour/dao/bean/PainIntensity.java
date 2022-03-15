@@ -36,6 +36,9 @@ public class PainIntensity {
 	public Long getId() {
 		return id;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Integer getTopRange() {
 		return topRange;
 	}
