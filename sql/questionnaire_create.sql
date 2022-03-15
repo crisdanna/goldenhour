@@ -1,10 +1,11 @@
 -- Table: public.questionnaire
 
 -- DROP TABLE public.questionnaire;
+CREATE SEQUENCE public.questionnaire_id_seq;
 
 CREATE TABLE public.questionnaire
 (
-    id bigint NOT NULL,
+    id bigint NOT NULL DEFAULT nextval('questionnaire_id_seq'),
     date date,
     final_score bigint,
     "time" time without time zone,
@@ -20,3 +21,5 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.questionnaire
     OWNER to postgres;
+
+ALTER SEQUENCE public.questionnaire_id_seq OWNED BY public.questionnaire.id;

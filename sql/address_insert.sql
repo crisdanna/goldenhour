@@ -1,1 +1,1 @@
-INSERT INTO public.address(street, number, district, city, zip_code, state) VALUES ('Rua 34', 1234, 'Manhatan', 'New York', '25632-547', 'NY');
+INSERT INTO public.address(id, street, number, district, city, zip_code, state) VALUES (SELECT nextval('address_id_seq'), 'Rua 34', 1234, 'Manhatan', 'New York', '25632-547', 'NY');
