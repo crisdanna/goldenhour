@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import QuestionBox from "./index";
 
 beforeEach(() => {
@@ -61,3 +62,33 @@ it("renders the alternatives", () => {
   expect(screen.getByText("Getting worse")).toBeTruthy();
   expect(screen.getByText("Fluctuating")).toBeTruthy();
 });
+
+it("calls the callback method with the response of the selected answer - 1", async () => {
+  const handleClick = jest.fn();
+  render(
+    <QuestionBox
+      title={'Have you received any treatment for this problem?'}
+      alternatives={['Yes', 'No']}
+      handleSelectedOption={handleClick}
+    />
+  );
+  userEvent.click(screen.getByText('Yes'))
+  expect(handleClick).toHaveBeenCalledTimes(1)
+  expect(handleClick).toHaveBeenCalledWith('Yes')
+  expect(console.error).not.toBeCalled();
+})
+
+it("calls the callback method with the response of the selected answer - 2", async () => {
+  const handleClick = jest.fn();
+  render(
+    <QuestionBox
+      title={'Have you received any treatment for this problem?'}
+      alternatives={['Yes', 'No']}
+      handleSelectedOption={handleClick}
+    />
+  );
+  userEvent.click(screen.getByText('No'))
+  expect(handleClick).toHaveBeenCalledTimes(1)
+  expect(handleClick).toHaveBeenCalledWith('No')
+  expect(console.error).not.toBeCalled();
+})
