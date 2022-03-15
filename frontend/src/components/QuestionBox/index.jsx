@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Button, Container, Typography } from '@material-ui/core'
 
 const QuestionBox = ({ title, alternatives, handleSelectedOption }) => {
   return (
-    <div>
-        {title}
+    <Container>
+      <Typography  variant="h3" component="h1"> 
+      {title}
+      </Typography>
         {alternatives.map((alternative, index) => (
-          <div key={index} onClick={() => handleSelectedOption(alternative)}>
-            {alternative}
-          </div>
+          <Button key={index} onClick={() => handleSelectedOption(alternative)} color="primary">
+          {alternative}
+          </Button>
         ))}
-    </div>
+    </Container>
   )
 }
 
