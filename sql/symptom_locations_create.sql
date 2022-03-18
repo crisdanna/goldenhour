@@ -6,7 +6,6 @@ CREATE TABLE public.symptom_locations
 (
     symptom_id bigint NOT NULL,
     locations_id bigint NOT NULL,
-    CONSTRAINT uk_hx7xup8sb7nmbrbdj9gcay1ln UNIQUE (locations_id),
     CONSTRAINT fkjckhb09uienaewdrrl0ou0de FOREIGN KEY (symptom_id)
         REFERENCES public.symptom (id) MATCH SIMPLE
         ON UPDATE NO ACTION

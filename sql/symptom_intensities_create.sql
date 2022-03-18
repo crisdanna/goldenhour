@@ -6,7 +6,6 @@ CREATE TABLE public.symptom_intensities
 (
     symptom_id bigint NOT NULL,
     intensities_id bigint NOT NULL,
-    CONSTRAINT uk_2edg0lu03d85biue00mbnbo7a UNIQUE (intensities_id),
     CONSTRAINT fkap142y45t4bynr2998cuj6w94 FOREIGN KEY (intensities_id)
         REFERENCES public.pain_intensity (id) MATCH SIMPLE
         ON UPDATE NO ACTION

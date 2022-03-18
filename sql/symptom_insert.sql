@@ -27,7 +27,7 @@ INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (1, 1)
 INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (1, 2);
 INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (1, 3);
 INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (3, 1);
-INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (3 2);
+INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (3, 2);
 INSERT INTO public.symptom_intensities(symptom_id, intensities_id) VALUES (3, 3);
 
 INSERT INTO public.symptom_locations(symptom_id, locations_id) VALUES (1, 1);
