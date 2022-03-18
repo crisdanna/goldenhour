@@ -31,7 +31,7 @@ public class Questionnaire {
 	private LocalTime time;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Symptom> symptoms;
+	private List<QuestionnaireItem> items;
 	
 	private Long finalScore;
 
@@ -59,12 +59,12 @@ public class Questionnaire {
 		this.time = time;
 	}
 
-	public List<Symptom> getSymptoms() {
-		return symptoms;
+	public List<QuestionnaireItem> getItems() {
+		return items;
 	}
 
-	public void setSymptoms(List<Symptom> symptoms) {
-		this.symptoms = symptoms;
+	public void setItems(List<QuestionnaireItem> items) {
+		this.items = items;
 	}
 
 	public Long getId() {

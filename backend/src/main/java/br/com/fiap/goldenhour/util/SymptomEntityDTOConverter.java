@@ -31,9 +31,9 @@ public class SymptomEntityDTOConverter {
 	public SymptomDto convertToDto(Symptom symptom) {
 		SymptomDto symptomDto = modelMapper.map(symptom, SymptomDto.class);
 		
-		symptomDto.setDuration(symptomDurationConverter.convertToDto(symptom.getDuration()));
-		symptomDto.setIntensity(painIntensityConverter.convertToDto(symptom.getIntensity()));
-		symptomDto.setLocation(painLocationConverter.convertToDto(symptom.getLocation()));
+		symptomDto.setDurations(symptomDurationConverter.convertToDtoList(symptom.getDurations()));
+		symptomDto.setIntensities(painIntensityConverter.convertToDtoList(symptom.getIntensities()));
+		symptomDto.setLocations(painLocationConverter.convertToDtoList(symptom.getLocations()));
 		
 		return symptomDto;
 	}
@@ -41,9 +41,9 @@ public class SymptomEntityDTOConverter {
 	public Symptom convertToEntity(SymptomDto symptomDto){
 		Symptom symptom = modelMapper.map(symptomDto, Symptom.class);
 		
-		symptom.setDuration(symptomDurationConverter.convertToEntity(symptomDto.getDuration()));
-		symptom.setIntensity(painIntensityConverter.convertToEntity(symptomDto.getIntensity()));
-		symptom.setLocation(painLocationConverter.convertToEntity(symptomDto.getLocation()));
+		symptom.setDurations(symptomDurationConverter.convertToEntityList(symptomDto.getDurations()));
+		symptom.setIntensities(painIntensityConverter.convertToEntityList(symptomDto.getIntensities()));
+		symptom.setLocations(painLocationConverter.convertToEntityList(symptomDto.getLocations()));
 		
 		return symptom;
 	}

@@ -32,4 +32,13 @@ public class SymptomDurationEntityDTOConverter {
 		
 		return durationsList;
 	}
+	
+	public List<SymptomDuration> convertToEntityList(List<SymptomDurationDto> symptomDurationList) {
+		List<SymptomDuration> durationsList = new ArrayList<SymptomDuration>();
+		symptomDurationList.forEach(symptomDuration -> {
+			durationsList.add(convertToEntity(symptomDuration));
+		});
+		
+		return durationsList;
+	}
 }

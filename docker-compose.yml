@@ -26,26 +26,24 @@ services:
       - ./sql/pain_intensity_create.sql:/docker-entrypoint-initdb.d/08-pain_intensity_create.sql
       - ./sql/symptom_duration_create.sql:/docker-entrypoint-initdb.d/09-symptom_duration_create.sql
       - ./sql/symptom_create.sql:/docker-entrypoint-initdb.d/10-symptom_create.sql
-      - ./sql/questionnaire_create.sql:/docker-entrypoint-initdb.d/11-questionnaire_create.sql
-      - ./sql/questionnaire_symptoms_create.sql:/docker-entrypoint-initdb.d/12-questionnaire_symptoms_create.sql
-      - ./sql/emergency_score_create.sql:/docker-entrypoint-initdb.d/13-emergency_score_create.sql
-      - ./sql/address_insert.sql:/docker-entrypoint-initdb.d/14-address_insert.sql
-      - ./sql/patient_insert.sql:/docker-entrypoint-initdb.d/15-patient_insert.sql
-      - ./sql/patient_address_insert.sql:/docker-entrypoint-initdb.d/16-patient_address_insert.sql
-      - ./sql/condition_insert.sql:/docker-entrypoint-initdb.d/17-condition_insert.sql
-      - ./sql/patient_health_insert.sql:/docker-entrypoint-initdb.d/18-patient_health_insert.sql
-      - ./sql/patient_health_conditions_insert.sql:/docker-entrypoint-initdb.d/19-patient_health_conditions_insert.sql
-      - ./sql/pain_location_insert.sql:/docker-entrypoint-initdb.d/20-pain_location_insert.sql
-      - ./sql/pain_intensity_insert.sql:/docker-entrypoint-initdb.d/21-pain_intensity_insert.sql
-      - ./sql/symptom_duration_insert.sql:/docker-entrypoint-initdb.d/22-symptom_duration_insert.sql
-      - ./sql/symptom_insert.sql:/docker-entrypoint-initdb.d/23-symptom_insert.sql
-      - ./sql/emergency_score_insert.sql:/docker-entrypoint-initdb.d/24-emergency_score_insert.sql
-  rabbitmq:
-    image: rabbitmq:management
-    container_name: rabbitmq_host
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+      - ./sql/symptom_durations_create.sql:/docker-entrypoint-initdb.d/11-symptom_durations_create.sql
+      - ./sql/symptom_locations_create.sql:/docker-entrypoint-initdb.d/12-symptom_locations_create.sql
+      - ./sql/symptom_intensities_create.sql:/docker-entrypoint-initdb.d/13-symptom_intensities_create.sql
+      - ./sql/questionnaire_create.sql:/docker-entrypoint-initdb.d/14-questionnaire_create.sql
+      - ./sql/questionnaire_item_create.sql:/docker-entrypoint-initdb.d/15-questionnaire_item_create.sql
+      - ./sql/questionnaire_items_create.sql:/docker-entrypoint-initdb.d/16-questionnaire_items_create.sql
+      - ./sql/emergency_score_create.sql:/docker-entrypoint-initdb.d/17-emergency_score_create.sql
+      - ./sql/address_insert.sql:/docker-entrypoint-initdb.d/18-address_insert.sql
+      - ./sql/patient_insert.sql:/docker-entrypoint-initdb.d/19-patient_insert.sql
+      - ./sql/patient_address_insert.sql:/docker-entrypoint-initdb.d/20-patient_address_insert.sql
+      - ./sql/condition_insert.sql:/docker-entrypoint-initdb.d/21-condition_insert.sql
+      - ./sql/patient_health_insert.sql:/docker-entrypoint-initdb.d/22-patient_health_insert.sql
+      - ./sql/patient_health_conditions_insert.sql:/docker-entrypoint-initdb.d/23-patient_health_conditions_insert.sql
+      - ./sql/pain_location_insert.sql:/docker-entrypoint-initdb.d/24-pain_location_insert.sql
+      - ./sql/pain_intensity_insert.sql:/docker-entrypoint-initdb.d/25-pain_intensity_insert.sql
+      - ./sql/symptom_duration_insert.sql:/docker-entrypoint-initdb.d/26-symptom_duration_insert.sql
+      - ./sql/symptom_insert.sql:/docker-entrypoint-initdb.d/27-symptom_insert.sql
+      - ./sql/emergency_score_insert.sql:/docker-entrypoint-initdb.d/28-emergency_score_insert.sql
   golden-hour-backend:
     container_name: gh-backend
     image: springboot-postgresq-backend

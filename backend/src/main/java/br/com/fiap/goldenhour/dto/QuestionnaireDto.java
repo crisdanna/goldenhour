@@ -10,7 +10,7 @@ public class QuestionnaireDto {
 	private String date;
 	private String time;
 	
-	private List<SymptomDto> symptoms;
+	private List<QuestionnaireItemDto> items;
 
 	public PatientDto getPatient() {
 		return patient;
@@ -36,12 +36,12 @@ public class QuestionnaireDto {
 		this.time = time;
 	}
 
-	public List<SymptomDto> getSymptoms() {
-		return symptoms;
+	public List<QuestionnaireItemDto> getItems() {
+		return items;
 	}
 
-	public void setSymptoms(List<SymptomDto> symptoms) {
-		this.symptoms = symptoms;
+	public void setItems(List<QuestionnaireItemDto> items) {
+		this.items = items;
 	}
 
 	public Long getId() {

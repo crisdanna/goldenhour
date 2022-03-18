@@ -5,7 +5,7 @@ CREATE SEQUENCE public.questionnaire_id_seq;
 
 CREATE TABLE public.questionnaire
 (
-    id bigint NOT NULL DEFAULT nextval('questionnaire_id_seq'),
+    id bigint NOT NULL,
     date date,
     final_score bigint,
     "time" time without time zone,

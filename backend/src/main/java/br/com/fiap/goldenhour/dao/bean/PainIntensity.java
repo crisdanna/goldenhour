@@ -21,6 +21,8 @@ public class PainIntensity {
 	private Integer topRange;
 	private Integer bottomRange;
 	
+	private Long score;
+	
 	public String getName() {
 		return name;
 	}
@@ -51,4 +53,11 @@ public class PainIntensity {
 	public void setBottomRange(Integer bottomRange) {
 		this.bottomRange = bottomRange;
 	}
+	public Long getScore() {
+		return score;
+	}
+	public void setScore(Long score) {
+		this.score = score;
+	}
+	
 }

@@ -10,6 +10,7 @@ CREATE TABLE public.pain_intensity
     description character varying(255) COLLATE pg_catalog."default",
     name character varying(255) COLLATE pg_catalog."default",
     top_range integer,
+    score bigint,
     CONSTRAINT pain_intensity_pkey PRIMARY KEY (id)
 )
 

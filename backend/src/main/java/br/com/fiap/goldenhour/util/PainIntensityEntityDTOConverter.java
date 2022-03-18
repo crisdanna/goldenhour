@@ -32,4 +32,13 @@ public class PainIntensityEntityDTOConverter {
 		
 		return dtoList;
 	}
+	
+	public List<PainIntensity> convertToEntityList(List<PainIntensityDto> painIntensityList) {
+		List<PainIntensity> entityList = new ArrayList<PainIntensity>();
+		painIntensityList.forEach(painIntensity -> {
+			entityList.add(convertToEntity(painIntensity));
+		});
+		
+		return entityList;
+	}
 }

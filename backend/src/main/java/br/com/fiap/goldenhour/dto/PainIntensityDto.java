@@ -7,6 +7,8 @@ public class PainIntensityDto {
 	private String description;
 	private Integer topRange;
 	private Integer bottomRange;
+	private Long score;
+	
 	public Long getId() {
 		return id;
 	}
@@ -36,5 +38,11 @@ public class PainIntensityDto {
 	}
 	public void setBottomRange(Integer bottomRange) {
 		this.bottomRange = bottomRange;
+	}
+	public Long getScore() {
+		return score;
+	}
+	public void setScore(Long score) {
+		this.score = score;
 	}
 }

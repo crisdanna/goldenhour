@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.fiap.goldenhour.dao.bean.EmergencyScore;
 import br.com.fiap.goldenhour.dao.bean.PatientHealthForm;
 import br.com.fiap.goldenhour.dao.bean.Questionnaire;
+import br.com.fiap.goldenhour.dao.bean.QuestionnaireItem;
 import br.com.fiap.goldenhour.dao.repository.EmergencyScoreRepository;
 
 @Service
@@ -24,7 +25,8 @@ public class EmergencyScoreServiceImpl implements EmergencyScoreService {
 	@Override
 	public EmergencyScore calculateEmergencyScore(Questionnaire questionnaire) {
 			
-		Long finalScore = questionnaire.getSymptoms().stream().mapToLong(symptom -> symptom.getScore()).sum();
+		Long finalScore = questionnaire.getItems().stream().mapToLong(item -> this.calculateItemScore(item)).sum();
+		
 		int patientAge = 0;
 		
 		PatientHealthForm patientHealthForm = healthFormService.getPatientHealthFormByPatientId(questionnaire.getPatient().getId());
@@ -52,6 +54,13 @@ public class EmergencyScoreServiceImpl implements EmergencyScoreService {
 	@Override
 	public List<EmergencyScore> getAllEmergencyScores() {
 		return (List<EmergencyScore>) this.repository.findAll();
+	}
+	
+	private Long calculateItemScore(QuestionnaireItem item) {
+		return item.getSymptomScore() 
+				+ item.getDurationScore() 
+				+ item.getLocationScore() 
+				+ item.getIntensityScore();
 	}
 
 	

@@ -11,6 +11,7 @@ CREATE TABLE public.symptom_duration
     is_constant character varying(255) COLLATE pg_catalog."default",
     name character varying(255) COLLATE pg_catalog."default",
     top_interval_in_minutes integer,
+    score bigint,
     CONSTRAINT symptom_duration_pkey PRIMARY KEY (id)
 )
 

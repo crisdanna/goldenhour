@@ -29,7 +29,7 @@ public class PatientHealthForm {
 	private Patient patient;
 	private Integer age;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.MERGE)
 	private List<Condition> conditions;
 	
 	private LocalDate date;

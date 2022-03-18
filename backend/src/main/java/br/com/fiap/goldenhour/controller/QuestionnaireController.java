@@ -23,6 +23,7 @@ import br.com.fiap.goldenhour.dto.QuestionnaireDto;
 import br.com.fiap.goldenhour.service.EmergencyScoreService;
 import br.com.fiap.goldenhour.service.QuestionnaireService;
 import br.com.fiap.goldenhour.util.PatientEntityDTOConverter;
+import br.com.fiap.goldenhour.util.QuestionnaireItemEntityDTOConverter;
 /**
  * This is the controller class for the emergency questionnaire
  * The services called here will manage the questionnaire and calculate the emergency score of the patient
@@ -45,6 +46,9 @@ public class QuestionnaireController {
 	
 	@Autowired
 	private PatientEntityDTOConverter patientConverter;
+	
+	@Autowired
+	private QuestionnaireItemEntityDTOConverter questionnaireItemConverter;
 	
 	@PostMapping
 	public QuestionnaireDto saveQuestionnaire(@RequestBody QuestionnaireDto questionnaire) {
@@ -74,6 +78,7 @@ public class QuestionnaireController {
 		QuestionnaireDto questionnaireDto = modelMapper.map(questionnaire, QuestionnaireDto.class);
 		questionnaireDto.setPatient(patientConverter.convertToDto(questionnaire.getPatient()));
 		questionnaireDto.setDate(questionnaire.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+		questionnaireDto.setItems(questionnaireItemConverter.convertToDtoList(questionnaire.getItems()));
 		
 	    return questionnaireDto;
 	}
@@ -94,6 +99,7 @@ public class QuestionnaireController {
 		questionnaire.setTime(LocalTime.parse(questionnaireDto.getTime(), DateTimeFormatter.ofPattern("HH:mm")));
 		
 		questionnaire.setPatient(patientConverter.convertToEntity(questionnaireDto.getPatient()));
+		questionnaire.setItems(questionnaireItemConverter.convertToEntityList(questionnaireDto.getItems()));
 				
 		return questionnaire;
 	}

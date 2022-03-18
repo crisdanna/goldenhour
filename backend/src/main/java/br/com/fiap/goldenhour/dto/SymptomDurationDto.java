@@ -8,6 +8,8 @@ public class SymptomDurationDto {
 	private Integer topIntervalInMinutes;
 	private Integer bottomIntervalInMinutes;
 	private String isConstant;
+	private Long score;
+	
 	public String getName() {
 		return name;
 	}
@@ -44,4 +46,11 @@ public class SymptomDurationDto {
 	public void setBottomIntervalInMinutes(Integer bottomIntervalInMinutes) {
 		this.bottomIntervalInMinutes = bottomIntervalInMinutes;
 	}
+	public Long getScore() {
+		return score;
+	}
+	public void setScore(Long score) {
+		this.score = score;
+	}
+	
 }

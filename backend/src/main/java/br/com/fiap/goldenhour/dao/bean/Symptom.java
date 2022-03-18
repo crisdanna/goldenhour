@@ -1,12 +1,14 @@
 package br.com.fiap.goldenhour.dao.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,17 +24,14 @@ public class Symptom {
 	private String name;
 	private String description;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "locationId")
-	private PainLocation location;
+	@OneToMany(cascade = CascadeType.MERGE)
+    private List<PainLocation> locations = new ArrayList<>();
 	
-	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "intensityId")
-	private PainIntensity intensity;
+	@OneToMany(cascade = CascadeType.MERGE)
+    private List<PainIntensity> intensities = new ArrayList<>();
 	
-	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "durationId")
-	private SymptomDuration duration;
+	@OneToMany(cascade = CascadeType.MERGE)
+    private List<SymptomDuration> durations = new ArrayList<>();
 	
 	private Long score;
 
@@ -52,28 +51,28 @@ public class Symptom {
 		this.description = description;
 	}
 
-	public PainLocation getLocation() {
-		return location;
+	public List<PainLocation> getLocations() {
+		return locations;
 	}
 
-	public void setLocation(PainLocation location) {
-		this.location = location;
+	public void setLocations(List<PainLocation> locations) {
+		this.locations = locations;
 	}
 
-	public PainIntensity getIntensity() {
-		return intensity;
+	public List<PainIntensity> getIntensities() {
+		return intensities;
 	}
 
-	public void setIntensity(PainIntensity intensity) {
-		this.intensity = intensity;
+	public void setIntensities(List<PainIntensity> intensities) {
+		this.intensities = intensities;
 	}
 
-	public SymptomDuration getDuration() {
-		return duration;
+	public List<SymptomDuration> getDurations() {
+		return durations;
 	}
 
-	public void setDuration(SymptomDuration duration) {
-		this.duration = duration;
+	public void setDurations(List<SymptomDuration> durations) {
+		this.durations = durations;
 	}
 
 	public Long getScore() {

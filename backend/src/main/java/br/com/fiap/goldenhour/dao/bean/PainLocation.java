@@ -19,6 +19,8 @@ public class PainLocation {
 	private String name;
 	private String description;
 	
+	private Long score;
+	
 	public String getName() {
 		return name;
 	}
@@ -37,5 +39,10 @@ public class PainLocation {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+	public Long getScore() {
+		return score;
+	}
+	public void setScore(Long score) {
+		this.score = score;
+	}
 }

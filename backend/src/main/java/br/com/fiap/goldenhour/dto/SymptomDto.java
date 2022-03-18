@@ -1,14 +1,16 @@
 package br.com.fiap.goldenhour.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SymptomDto {
 
 	private Long id;
-
 	private String name;
 	private String description;
-	private PainLocationDto location;
-	private PainIntensityDto intensity;
-	private SymptomDurationDto duration;
+	private List<PainLocationDto> locations = new ArrayList<>();
+	private List<PainIntensityDto> intensities = new ArrayList<>();
+	private List<SymptomDurationDto> durations = new ArrayList<>();
 	private Long score;
 	
 	public Long getId() {
@@ -29,23 +31,23 @@ public class SymptomDto {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public PainLocationDto getLocation() {
-		return location;
+	public List<PainLocationDto> getLocations() {
+		return locations;
 	}
-	public void setLocation(PainLocationDto location) {
-		this.location = location;
+	public void setLocations(List<PainLocationDto> locations) {
+		this.locations = locations;
 	}
-	public PainIntensityDto getIntensity() {
-		return intensity;
+	public List<PainIntensityDto> getIntensities() {
+		return intensities;
 	}
-	public void setIntensity(PainIntensityDto intensity) {
-		this.intensity = intensity;
+	public void setIntensities(List<PainIntensityDto> intensities) {
+		this.intensities = intensities;
 	}
-	public SymptomDurationDto getDuration() {
-		return duration;
+	public List<SymptomDurationDto> getDurations() {
+		return durations;
 	}
-	public void setDuration(SymptomDurationDto duration) {
-		this.duration = duration;
+	public void setDurations(List<SymptomDurationDto> durations) {
+		this.durations = durations;
 	}
 	public Long getScore() {
 		return score;
