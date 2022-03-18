@@ -37,6 +37,22 @@ patient
 questionnaire
 - POST - http://localhost:8085/goldenhour/questionnaire - Save a questionnaire for a specific patient. JSON:
 
+```
+{"patient":{"id":1,"birthDate":"05/15/1983","addresses":[{"id":1}]},
+ "age":38,
+ "date":"02/10/2022",
+ "time":"18:35",
+ "items":[{"symptomId":1,
+           "symptomScore":2,
+           "locationId":2,
+           "locationScore":1,
+           "intensityId":2,
+           "intensityScore":2,
+           "durationId":1,
+           "durationScore":1,
+           "comments":""}]}
+ ```
+
 - GET - http://localhost:8085/goldenhour/questionnaire/{id} - Get a questionnaire by its ID
 
 - GET - http://localhost:8085/goldenhour/questionnaire/list/{id} - Get all questionnaires created by a patient. The search is done by the patients ID
