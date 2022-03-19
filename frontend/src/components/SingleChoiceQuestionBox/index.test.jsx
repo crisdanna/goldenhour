@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
-import QuestionBox from "./index";
+import SingleChoiceQuestionBox from "./index";
 
 beforeEach(() => {
   jest.spyOn(console, "error");
@@ -21,7 +21,7 @@ it("renders without crashing", () => {
     "I don't remember",
   ];
   render(
-    <QuestionBox
+    <SingleChoiceQuestionBox
       title={"When did the pain started?"}
       alternatives={alternatives}
     />
@@ -30,14 +30,14 @@ it("renders without crashing", () => {
 });
 
 it("warns when the required attribute is not provided", () => {
-  render(<QuestionBox />);
+  render(<SingleChoiceQuestionBox />);
   expect(console.error).toBeCalled();
 });
 
 it("renders the title", () => {
   const alternatives = ["gradually", "suddenly", "injury"];
   render(
-    <QuestionBox title={"How did it start?"} alternatives={alternatives} />
+    <SingleChoiceQuestionBox title={"How did it start?"} alternatives={alternatives} />
   );
   expect(console.error).not.toBeCalled();
   expect(screen.getByText("How did it start?")).toBeTruthy();
@@ -51,7 +51,7 @@ it("renders the alternatives", () => {
     "Fluctuating",
   ];
   render(
-    <QuestionBox
+    <SingleChoiceQuestionBox
       title={"My symptoms are currently"}
       alternatives={alternatives}
     />
@@ -66,7 +66,7 @@ it("renders the alternatives", () => {
 it("calls the callback method with the response of the selected answer - 1", async () => {
   const handleClick = jest.fn();
   render(
-    <QuestionBox
+    <SingleChoiceQuestionBox
       title={'Have you received any treatment for this problem?'}
       alternatives={['Yes', 'No']}
       handleSelectedOption={handleClick}
@@ -81,7 +81,7 @@ it("calls the callback method with the response of the selected answer - 1", asy
 it("calls the callback method with the response of the selected answer - 2", async () => {
   const handleClick = jest.fn();
   render(
-    <QuestionBox
+    <SingleChoiceQuestionBox
       title={'Have you received any treatment for this problem?'}
       alternatives={['Yes', 'No']}
       handleSelectedOption={handleClick}

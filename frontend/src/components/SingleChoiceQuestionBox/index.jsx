@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Button, Container, Typography } from '@material-ui/core'
 
-const QuestionBox = ({ title, alternatives, handleSelectedOption }) => {
+const SingleChoiceQuestionBox = ({ title, alternatives, handleSelectedOption }) => {
   return (
     <Container>
       <Typography  variant="h3" component="h1"> 
@@ -17,15 +17,15 @@ const QuestionBox = ({ title, alternatives, handleSelectedOption }) => {
   )
 }
 
-QuestionBox.defaultProps = {
+SingleChoiceQuestionBox.defaultProps = {
   alternatives: [],
   handleSelectedOption: () => {}
 };
 
-QuestionBox.propTypes = {
+SingleChoiceQuestionBox.propTypes = {
   title: PropTypes.string.isRequired,
   alternatives: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleSelectedOption: PropTypes.func
 }
 
-export default QuestionBox
+export default SingleChoiceQuestionBox
