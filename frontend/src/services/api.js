@@ -10,7 +10,7 @@ export async function getQuestionnaireQuestion() {
   return res;
 }
 
-export async function postQuestionnaireInitialSymptoms(data) {
+export async function postQuestionnaireQuestionResponse(data) {
   const res = await axios.post({
     url: `${HOST}/initial_symptoms`,
     data: data
