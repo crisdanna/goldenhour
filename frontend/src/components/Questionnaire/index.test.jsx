@@ -32,7 +32,7 @@ describe("multiple choice question", () => {
         "Nausea /Vomiting",
       ],
     };
-    api.getSymptoms.mockImplementation(
+    api.getQuestionnaireQuestion.mockImplementation(
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
@@ -56,7 +56,7 @@ describe("multiple choice question", () => {
         "Changes in appetite",
       ],
     };
-    api.getSymptoms.mockImplementation(
+    api.getQuestionnaireQuestion.mockImplementation(
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
@@ -92,7 +92,7 @@ describe("single choice question", () => {
       title: "Have you ever had this problem before?",
       alternatives: ["Yes", "No"],
     };
-    api.getSymptoms.mockImplementation(
+    api.getQuestionnaireQuestion.mockImplementation(
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
@@ -109,7 +109,7 @@ describe("single choice question", () => {
       title: "Are you allergic to latex?",
       alternatives: ["Yes", "No"],
     };
-    api.getSymptoms.mockImplementation(
+    api.getQuestionnaireQuestion.mockImplementation(
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
