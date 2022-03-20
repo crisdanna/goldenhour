@@ -3,7 +3,7 @@ import SingleChoiceQuestionBox from "components/SingleChoiceQuestionBox";
 import React, { useEffect, useState } from "react";
 import { getSymptoms, postInitialSymptoms } from "services/api";
 
-const QuestionList = () => {
+const Questionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
 
   const getQuestions = async () => {
@@ -60,4 +60,4 @@ const QuestionList = () => {
   );
 };
 
-export default QuestionList;
+export default Questionnaire;

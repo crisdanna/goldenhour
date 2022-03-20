@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, waitFor, within } from "@testing-library/react";
-import QuestionList from "./index";
+import Questionnaire from "./index";
 import * as api from "services/api";
 import userEvent from "@testing-library/user-event";
 
@@ -36,7 +36,7 @@ describe("multiple choice question", () => {
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
-    render(<QuestionList />);
+    render(<Questionnaire />);
 
     await waitFor(() => {
       expect(screen.getByTestId("multiple-question-container")).toBeTruthy();
@@ -60,7 +60,7 @@ describe("multiple choice question", () => {
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
-    render(<QuestionList />);
+    render(<Questionnaire />);
 
     await waitFor(() => {
       expect(
@@ -96,7 +96,7 @@ describe("single choice question", () => {
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
-    render(<QuestionList />);
+    render(<Questionnaire />);
 
     await waitFor(() => {
       expect(screen.getByTestId("single-question-container")).toBeTruthy();
@@ -113,7 +113,7 @@ describe("single choice question", () => {
       () => new Promise((resolve) => resolve({ data: data }))
     );
 
-    render(<QuestionList />);
+    render(<Questionnaire />);
 
     await waitFor(() => {
       expect(screen.getByText("Yes")).toBeInTheDocument();
