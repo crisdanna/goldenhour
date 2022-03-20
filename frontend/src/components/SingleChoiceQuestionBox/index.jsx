@@ -4,7 +4,7 @@ import { Button, Container, Typography } from '@material-ui/core'
 
 const SingleChoiceQuestionBox = ({ title, alternatives, handleSelectedOption }) => {
   return (
-    <Container>
+    <Container data-testid='single-question-container'>
       <Typography  variant="h3" component="h1"> 
       {title}
       </Typography>
