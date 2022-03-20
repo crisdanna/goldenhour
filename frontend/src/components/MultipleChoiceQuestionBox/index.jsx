@@ -45,7 +45,7 @@ const MultipleChoiceQuestionBox = ({
   }
 
   return (
-    <Container>
+    <Container data-testid='multiple-question-container'>
       <Typography>Selecione todas que se aplicam</Typography>
       <Typography variant="h3" component="h1">
         {title}
