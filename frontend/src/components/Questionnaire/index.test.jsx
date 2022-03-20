@@ -44,7 +44,7 @@ describe("multiple choice question", () => {
   });
 
   it("sends the question response to the backend API", async () => {
-    const apiCallSpy = jest.spyOn(api, "postInitialSymptoms");
+    const apiCallSpy = jest.spyOn(api, "postQuestionnaireInitialSymptoms");
 
     const data = {
       title: "Currently I am experiencing:",
@@ -104,7 +104,7 @@ describe("single choice question", () => {
   });
 
   it("sends the question response to the backend API", async () => {
-    const apiCallSpy = jest.spyOn(api, "postInitialSymptoms");
+    const apiCallSpy = jest.spyOn(api, "postQuestionnaireInitialSymptoms");
     const data = {
       title: "Are you allergic to latex?",
       alternatives: ["Yes", "No"],
