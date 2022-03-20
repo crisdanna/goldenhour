@@ -38,7 +38,7 @@ const MultipleChoiceQuestionBox = ({
   }
 
   const getSelectedOptions = () => {
-    const selectedOptions = checkboxesOptions.filter(option => option.isChecked == true).map(option => option.label)
+    const selectedOptions = checkboxesOptions.filter(option => option.isChecked === true).map(option => option.label)
     return { 
       selectedOptions
     }
