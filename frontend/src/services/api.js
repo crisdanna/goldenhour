@@ -9,3 +9,12 @@ export async function getSymptoms() {
 
   return res;
 }
+
+export async function postInitialSymptoms(data) {
+  const res = await axios.post({
+    url: `${HOST}/initial_symptoms`,
+    data: data
+  })
+
+  return res
+}
