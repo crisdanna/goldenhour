@@ -2,7 +2,7 @@ import axios from "axios";
 
 const HOST = process.env.API_BASE_URL;
 
-export async function getSymptoms() {
+export async function getQuestionnaireQuestion() {
   const res = await axios.get({
     url: `${HOST}/symptom/list`,
   });

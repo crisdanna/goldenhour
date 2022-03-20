@@ -1,7 +1,7 @@
 import MultipleChoiceQuestionBox from "components/MultipleChoiceQuestionBox";
 import SingleChoiceQuestionBox from "components/SingleChoiceQuestionBox";
 import React, { useEffect, useState } from "react";
-import { getSymptoms, postQuestionnaireInitialSymptoms } from "services/api";
+import { getQuestionnaireQuestion, postQuestionnaireInitialSymptoms } from "services/api";
 
 const Questionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -9,7 +9,7 @@ const Questionnaire = () => {
   const getQuestions = async () => {
     let res = null;
     try {
-      res = await getSymptoms();
+      res = await getQuestionnaireQuestion();
       setCurrentQuestion(res.data);
     } catch (e) {
       console.log("error", e.message);
