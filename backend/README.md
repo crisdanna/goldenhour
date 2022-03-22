@@ -7,26 +7,34 @@ Use the following password: pg_adm123. If you change any of those setting, chang
 
 SQL scripts execution order:
 
-* address_create.sql
-* patient_create.sql
-* patient_address_create.sql
-* condition_create.sql
-* patient_health_form_create.sql
-* health_form_condition_create.sql
-* symptom_create.sql
-* questionnaire_create.sql
-* questionnaire_symptom_create.sql
-* emergency_score_create.sql
-* address_insert.sql
-* patient_insert.sql
-* patient_address_insert.sql
-* condition_insert.sql
-* patient_health_form_insert.sql
-* health_form_condition_insert.sql
-* symptom_insert.sql
-* questionnaire_insert.sql
-* questionnaire_symptom_insert.sql
-* emergency_score_insert.sql
+* ../sql/address_create.sql
+* ../sql/patient_create.sql
+* ../sql/patient_address_create.sql
+* ../sql/condition_create.sql
+* ../sql/patient_health_create.sql
+* ../sql/patient_health_conditions_create.sql
+* ../sql/pain_location_create.sql
+* ../sql/pain_intensity_create.sql
+* ../sql/symptom_duration_create.sql
+* ../sql/symptom_create.sql
+* ../sql/symptom_durations_create.sql
+* ../sql/symptom_locations_create.sql
+* ../sql/symptom_intensities_create.sql
+* ../sql/questionnaire_create.sql
+* ../sql/questionnaire_item_create.sql
+* ../sql/questionnaire_items_create.sql
+* ../sql/emergency_score_create.sql
+* ../sql/address_insert.sql
+* ../sql/patient_insert.sql
+* ../sql/patient_address_insert.sql
+* ../sql/condition_insert.sql
+* ../sql/patient_health_insert.sql
+* ../sql/patient_health_conditions_insert.sql
+* ../sql/pain_location_insert.sql
+* ../sql/pain_intensity_insert.sql
+* ../sql/symptom_duration_insert.sql
+* ../sql/symptom_insert.sql
+* ../sql/emergency_score_insert.sql
 
 
 RESTful URLs:
