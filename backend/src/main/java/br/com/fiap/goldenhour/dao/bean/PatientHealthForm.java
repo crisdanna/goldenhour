@@ -2,6 +2,7 @@ package br.com.fiap.goldenhour.dao.bean;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -27,7 +28,7 @@ public class PatientHealthForm {
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "patientId")
 	private Patient patient;
-	private Integer age;
+	private Integer age = 0;
 
 	@OneToMany(cascade = CascadeType.MERGE)
 	private List<Condition> conditions;
@@ -66,7 +67,7 @@ public class PatientHealthForm {
 		this.time = time;
 	}
 	public List<Condition> getConditions() {
-		return conditions;
+		return (conditions != null) ? conditions : new ArrayList<>();
 	}
 	public void setConditions(List<Condition> conditions) {
 		this.conditions = conditions;

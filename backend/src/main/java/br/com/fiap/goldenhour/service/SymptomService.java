@@ -9,6 +9,7 @@ import br.com.fiap.goldenhour.dao.bean.SymptomDuration;
 
 public interface SymptomService {
 	public Symptom getSymptom(Long id);
+	public List<Symptom> getSymptomsByName(String name);
 	public List<Symptom> getAllSymptoms();
 	public List<SymptomDuration> getAllSymptomDurations();
 	public List<PainLocation> getAllPainLocations();
