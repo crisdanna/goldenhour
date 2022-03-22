@@ -42,6 +42,11 @@ public class SymptomController {
 		return symptomConverter.convertToDto(this.service.getSymptom(id));
 	}
 	
+	@GetMapping("/name/{name}")
+	public List<SymptomDto> getSymptomsByName(@PathVariable("name") String name) {
+		return symptomConverter.convertToDtoList(this.service.getSymptomsByName(name));
+	}
+	
 	@GetMapping("/list")
 	public List<SymptomDto> getAllSymptoms() {
 		return symptomConverter.convertToDtoList(this.service.getAllSymptoms());

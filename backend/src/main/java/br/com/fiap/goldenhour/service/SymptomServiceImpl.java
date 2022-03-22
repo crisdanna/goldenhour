@@ -33,6 +33,11 @@ public class SymptomServiceImpl implements SymptomService {
 	public Symptom getSymptom(Long id) {
 		return symptomRepository.findById(id).get();
 	}
+	
+	@Override
+	public List<Symptom> getSymptomsByName(String name) {
+		return (List<Symptom>) this.symptomRepository.findByName(name);
+	}
 
 	@Override
 	public List<Symptom> getAllSymptoms() {
