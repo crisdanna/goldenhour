@@ -1,4 +1,4 @@
-# Golden Hour
+# Schwester
 
 This application is composed by 4 services and it stores its data in a PostgreSQL database. You can find more details on the services inside the backend folder.
 
@@ -8,7 +8,7 @@ docker-compose up -d
 You might need to install Docker Compose. If that's the case, run the following command: docker-compose pull
 
 All images will be created and the containers started.
-To access the application, just open http://localhost:8080/goldenhour
+To access the application, just open http://localhost:8080/schwester
 
 The database is pre-loaded with some test data and the docker compose is responsible for starting the DB and running the queries.
 

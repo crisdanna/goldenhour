@@ -1,7 +1,7 @@
 server:
     port: 8085
     servlet:
-        context-path: /goldenhour
+        context-path: /schwester
 
 ## default connection pool
 spring:
