@@ -1,4 +1,4 @@
-# golden_hour_questionnaire
+# schwester
 
 This project communicates with a PostgreSQL database. Install PostgreSQL, using all default settings, don't change the default port. 
 
@@ -42,26 +42,26 @@ RESTful URLs:
 Services:
 
 symptom
-- GET - http://localhost:8085/goldenhour/symptom/list - Get all symptoms with its scores
+- GET - http://localhost:8085/schwester/symptom/list - Get all symptoms with its scores
 
-- GET - http://localhost:8085/goldenhour/symptom/{id} - Get a symptom's information by its ID
+- GET - http://localhost:8085/schwester/symptom/{id} - Get a symptom's information by its ID
 
-- GET - http://localhost:8085/goldenhour/symptom/name/{name} - Get all symptoms registered with the same name (case insensitive).
+- GET - http://localhost:8085/schwester/symptom/name/{name} - Get all symptoms registered with the same name (case insensitive).
 
 symptom duration
-- GET - http://localhost:8085/goldenhour/symptom/duration/list - Get all possible values for the duration interval of a symptom
+- GET - http://localhost:8085/schwester/symptom/duration/list - Get all possible values for the duration interval of a symptom
 
 symptom location
-- GET - http://localhost:8085/goldenhour/symptom/location/list - Get all possible values for the location of a symptom
+- GET - http://localhost:8085/schwester/symptom/location/list - Get all possible values for the location of a symptom
 
 symptom pain intensity
-- GET - http://localhost:8085/goldenhour/symptom/intensity/list - Get all possible values for the pain intensity of a symptom
+- GET - http://localhost:8085/schwester/symptom/intensity/list - Get all possible values for the pain intensity of a symptom
 
 patient
-- GET - http://localhost:8085/goldenhour/patient/{id} - Get a patient's personal information by his ID
+- GET - http://localhost:8085/schwester/patient/{id} - Get a patient's personal information by his ID
 
 questionnaire
-- POST - http://localhost:8085/goldenhour/questionnaire - Save a questionnaire for a specific patient. JSON:
+- POST - http://localhost:8085/schwester/questionnaire - Save a questionnaire for a specific patient. JSON:
 
 ```
 {"patient":{"id":1,"birthDate":"05/15/1983","addresses":[{"id":1}]},
@@ -79,13 +79,13 @@ questionnaire
            "comments":""}]}
  ```
 
-- GET - http://localhost:8085/goldenhour/questionnaire/{id} - Get a questionnaire by its ID
+- GET - http://localhost:8085/schwester/questionnaire/{id} - Get a questionnaire by its ID
 
-- GET - http://localhost:8085/goldenhour/questionnaire/list/{id} - Get all questionnaires created by a patient. The search is done by the patients ID
+- GET - http://localhost:8085/schwester/questionnaire/list/{id} - Get all questionnaires created by a patient. The search is done by the patients ID
 
-- GET - http://localhost:8085/goldenhour/questionnaire/score - Calculate the score of a questionnaire. The input is a questionnaire on the following format:
+- GET - http://localhost:8085/schwester/questionnaire/score - Calculate the score of a questionnaire. The input is a questionnaire on the following format:
 
-- POST - http://localhost:8085/goldenhour/healthForm - Save a health form for a specific patient. JSON:
+- POST - http://localhost:8085/schwester/healthForm - Save a health form for a specific patient. JSON:
 
 ```
 {"patient":{"id":1,"birthDate":"05/15/1983","addresses":[{"id":1}]},
@@ -95,7 +95,7 @@ questionnaire
  "time":"18:35"}
  ```
 
-- GET - http://localhost:8085/goldenhour/healthForm/{id} - Get a health form by its ID
+- GET - http://localhost:8085/schwester/healthForm/{id} - Get a health form by its ID
 
-- GET - http://localhost:8085/goldenhour/healthForm/patient/{id} - Get a health form for a specific patient by his ID
+- GET - http://localhost:8085/schwester/healthForm/patient/{id} - Get a health form for a specific patient by his ID
 

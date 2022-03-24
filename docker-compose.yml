@@ -44,8 +44,8 @@ services:
       - ./sql/symptom_duration_insert.sql:/docker-entrypoint-initdb.d/26-symptom_duration_insert.sql
       - ./sql/symptom_insert.sql:/docker-entrypoint-initdb.d/27-symptom_insert.sql
       - ./sql/emergency_score_insert.sql:/docker-entrypoint-initdb.d/28-emergency_score_insert.sql
-  golden-hour-backend:
-    container_name: gh-backend
+  schwester-backend:
+    container_name: schwester-backend
     image: springboot-postgresq-backend
     build: ./backend
     ports:

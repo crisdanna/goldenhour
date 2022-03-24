@@ -10,6 +10,6 @@ RUN mvn -f /home/app/pom.xml clean package
 # Package stage
 #
 FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/golden-hour-backend.jar /usr/local/app/golden-hour-backend.jar
+COPY --from=build /home/app/target/schwester-backend.jar /usr/local/app/schwester-backend.jar
 EXPOSE 8087
-ENTRYPOINT ["java","-jar","/usr/local/app/golden-hour-backend.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/app/schwester-backend.jar"]
