@@ -13,16 +13,26 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useFormik } from 'formik';
+import moment from 'moment'
 
 import EmergencyImage from "assets/emergency-questionnaire.png";
 import Header from "components/Header";
 import IntensityInput from 'components/IntensityInput'
-import { getSymptomLocations, getSymptomDurations, getSymptomList } from 'services/api'
+import { getSymptomLocations, getSymptomDurations, getSymptomList, postQuestionnaire } from 'services/api'
 
 const EmergencyQuestionnaire = () => {
   const [symptomLocationList, setSymptomLocationList] = useState([])
   const [symptomDurationList, setSymptomDurationList] = useState([])
   const [symptomList, setSymptomList] = useState([])
+
+  const sendQuestionnaire = async (values) => {
+    try {
+      await postQuestionnaire(values);
+    } catch (e) {
+      // TODO: change it to a toast notification
+      throw new Error("Erro ao enviar questionário");
+    }
+  };
 
   const getLocations = async () => {
     let res = null;
@@ -65,38 +75,36 @@ const EmergencyQuestionnaire = () => {
 
   const questions = [
     {
-      inputName: "q1",
+      inputName: "locationId",
       title: "1. A sua dor está localizada em qual região?",
       alternatives: symptomLocationList
     },
     {
-      inputName: "q2",
+      inputName: "commentId",
       title: "2. Qual a característica desta dor?",
       alternatives: [
+        // TODO: this will be changed to a text input in the future.
         {
-          id2: 1,
           id: 'Em aperto, opressão, pressão ou queimação',
           name: 'Em aperto, opressão, pressão ou queimação', 
         },
         {
-          id2: 2,
           id: 'Com irradiação para o braço esquerdo',
           name: 'Com irradiação para o braço esquerdo',
         },
         {
-          id2: 3,
           id: 'Em pontadas ou agulhadas',
           name: 'Em pontadas ou agulhadas',
         },
       ],
     },
     {
-      inputName: "q3",
+      inputName: "durationId",
       title: "3. Quanto tempo já se passou?",
       alternatives: symptomDurationList
     },
     {
-      inputName: "q4",
+      inputName: "symptomId",
       title: "4. Possui algum dos sintomas abaixo?",
       alternatives: symptomList,
       multipleChoiceQuestion: true,
@@ -115,7 +123,17 @@ const EmergencyQuestionnaire = () => {
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit: (values) => {
-      console.log(values);
+      const questionnaireItems = values.symptomId.map(sid => {return {symptomId: sid, comments: values.commentId, locationId: values.locationId, durationId: values.durationId}})
+      const finalValue = {
+        // TODO: get patient data from the global state
+        "patient":{"id":1,"birthDate":"05/15/1983","addresses":[{"id":1}]},
+        "age":38,
+
+        "date":moment().format('L'),
+        "time":moment().format('HH:mm'), 
+        "items": questionnaireItems,
+      }
+      sendQuestionnaire(finalValue)
     },
   });
 
@@ -138,7 +156,6 @@ const EmergencyQuestionnaire = () => {
       <Grid item xs style={{ flexGrow: 1 }}>
         {/* QuestionnaireScreen */}
         <form onSubmit={formik.handleSubmit}>
-         {/*console.log('values', formik.values)*/}
           <Grid item container direction="column" style={{ height: "100%" }}>
             <Grid item style={{ marginTop: 10, marginBottom: 10 }}>
               <Container>

@@ -34,3 +34,12 @@ export async function getSymptomList() {
 
   return res;
 }
+
+export async function postQuestionnaire(data) {
+  const res = await axios.post(
+    `${HOST}/questionnaire`,
+    data
+  )
+
+  return res
+}
