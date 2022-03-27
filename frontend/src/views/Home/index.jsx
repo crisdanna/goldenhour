@@ -12,7 +12,7 @@ const Home = () => {
         <Header backgroundImage={HomeBackground} />
         <FloatingUserInformation />
       </Grid>
-      <Grid style={{ flexGrow: 1 }} item xs>
+      <Grid style={{ flexGrow: 1, overflow: 'hidden' }} item xs>
         <HomeComponent />
       </Grid>
     </Grid>
