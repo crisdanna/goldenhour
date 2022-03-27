@@ -1,11 +1,9 @@
 import axios from "axios";
 
-const HOST = process.env.API_BASE_URL;
+const HOST = 'http://localhost:8085/schwester'
 
 export async function getQuestionnaireQuestion() {
-  const res = await axios.get({
-    url: `${HOST}/symptom/list`,
-  });
+  const res = await axios.get(`${HOST}/symptom/list`);
 
   return res;
 }
@@ -17,4 +15,22 @@ export async function postQuestionnaireQuestionResponse(data) {
   })
 
   return res
+}
+
+export async function getSymptomLocations() {
+  const res = await axios.get(`${HOST}/symptom/location/list`);
+
+  return res;
+}
+
+export async function getSymptomDurations() {
+  const res = await axios.get(`${HOST}/symptom/duration/list`);
+
+  return res;
+}
+
+export async function getSymptomList() {
+  const res = await axios.get(`${HOST}/symptom/list`);
+
+  return res;
 }

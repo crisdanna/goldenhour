@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
@@ -17,34 +17,90 @@ import { useFormik } from 'formik';
 import EmergencyImage from "assets/emergency-questionnaire.png";
 import Header from "components/Header";
 import IntensityInput from 'components/IntensityInput'
+import { getSymptomLocations, getSymptomDurations, getSymptomList } from 'services/api'
 
 const EmergencyQuestionnaire = () => {
+  const [symptomLocationList, setSymptomLocationList] = useState([])
+  const [symptomDurationList, setSymptomDurationList] = useState([])
+  const [symptomList, setSymptomList] = useState([])
+
+  const getLocations = async () => {
+    let res = null;
+    try {
+      res = await getSymptomLocations();
+      setSymptomLocationList(res.data);
+    } catch (e) {
+      // TODO: change it to a toast notification
+      throw new Error("Erro ao carregar lista de sintomas");
+    }
+  };
+
+  const getDurations = async () => {
+    let res = null;
+    try {
+      res = await getSymptomDurations();
+      setSymptomDurationList(res.data);
+    } catch (e) {
+      // TODO: change it to a toast notification
+      throw new Error("Erro ao carregar lista de sintomas");
+    }
+  };
+
+  const getSymptoms = async () => {
+    let res = null;
+    try {
+      res = await getSymptomList();
+      setSymptomList(res.data);
+    } catch (e) {
+      // TODO: change it to a toast notification
+      throw new Error("Erro ao carregar lista de sintomas");
+    }
+  };
+
+  useEffect(() => {
+    getLocations();
+    getDurations();
+    getSymptoms();
+  }, []);
+
   const questions = [
     {
       inputName: "q1",
       title: "1. A sua dor está localizada em qual região?",
-      alternatives: ['Central', 'Difusa', 'Irradiada'],
+      alternatives: symptomLocationList
     },
     {
       inputName: "q2",
       title: "2. Qual a característica desta dor?",
       alternatives: [
-        'Em aperto, opressão, pressão ou queimação',
-        'Com irradiação para o braço esquerdo',
-        'Em pontadas ou agulhadas'
+        {
+          id2: 1,
+          id: 'Em aperto, opressão, pressão ou queimação',
+          name: 'Em aperto, opressão, pressão ou queimação', 
+        },
+        {
+          id2: 2,
+          id: 'Com irradiação para o braço esquerdo',
+          name: 'Com irradiação para o braço esquerdo',
+        },
+        {
+          id2: 3,
+          id: 'Em pontadas ou agulhadas',
+          name: 'Em pontadas ou agulhadas',
+        },
       ],
     },
     {
       inputName: "q3",
       title: "3. Quanto tempo já se passou?",
-      alternatives: ['5 a 20 minutos', '20 a 30 minutos', '+ de 30 min', 'não tenho certeza'],
+      alternatives: symptomDurationList
     },
     {
       inputName: "q4",
       title: "4. Possui algum dos sintomas abaixo?",
-      alternatives: ["Falta de ar", 'Palpitação', 'Sudorese', 'Tontura', 'Fraqueza', 'Desmaio', 'Náusea', 'Vômitos', 'Inchaço'],
+      alternatives: symptomList,
       multipleChoiceQuestion: true,
-    }
+    },
   ];
 
   const questionNamesAndDefaultValueArray = questions.map((x) => {
@@ -82,6 +138,7 @@ const EmergencyQuestionnaire = () => {
       <Grid item xs style={{ flexGrow: 1 }}>
         {/* QuestionnaireScreen */}
         <form onSubmit={formik.handleSubmit}>
+         {/*console.log('values', formik.values)*/}
           <Grid item container direction="column" style={{ height: "100%" }}>
             <Grid item style={{ marginTop: 10, marginBottom: 10 }}>
               <Container>
@@ -142,18 +199,18 @@ const EmergencyQuestionnaire = () => {
                                   <Grid
                                     item
                                     xs={6}
-                                    key={alternative}
+                                    key={alternative.id} 
                                     style={{}}
                                   >
                                     <FormControlLabel
                                       control={
                                         <Checkbox
                                           color="primary"
-                                          value={alternative}
+                                          value={alternative.id.toString()}
                                           name={question.inputName}
                                         />
                                       }
-                                      value={alternative}
+                                      value={alternative.id.toString()}
                                       name={question.inputName}
                                       label={
                                         <Typography
@@ -162,7 +219,7 @@ const EmergencyQuestionnaire = () => {
                                             color: "#424244",
                                           }}
                                         >
-                                          {alternative}
+                                          {alternative.name}
                                         </Typography>
                                       }
                                     />
@@ -189,9 +246,9 @@ const EmergencyQuestionnaire = () => {
                               style={{ marginLeft: 20, marginRight: 20 }}
                             >
                               {question.alternatives.map((alternative) => (
-                                <Grid item xs={6} key={alternative} style={{}}>
+                                <Grid item xs={6} key={alternative.id} style={{}}>
                                   <FormControlLabel
-                                    value={alternative}
+                                    value={alternative.id.toString()}
                                     label={
                                       <Typography
                                         style={{
@@ -199,7 +256,7 @@ const EmergencyQuestionnaire = () => {
                                           color: "#424244",
                                         }}
                                       >
-                                        {alternative}
+                                        {alternative.name}
                                       </Typography>
                                     }
                                     control={<Radio color="primary" />}
