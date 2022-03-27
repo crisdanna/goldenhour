@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 import logoImage from "assets/logo.png";
 
@@ -97,6 +98,8 @@ const Login = ({ sectionName }) => {
                       data-testid="submit-button"
                       variant="contained"
                       color="primary"
+                      component={RouterLink}
+                      to='/home'
                     >
                       ENVIAR
                     </Button>
