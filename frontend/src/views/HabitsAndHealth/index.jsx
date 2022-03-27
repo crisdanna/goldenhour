@@ -41,30 +41,6 @@ const HabitsAndHealth = () => {
       title: "4. É fumante?",
       alternatives: ["SIM", "NÃO"],
     },
-    {
-      title: "5. Qual sua faixa-etária?",
-      alternatives: ["< 45 anos", "> 45 à 54", "> 54 à 64", "> 64 anos"],
-    },
-    {
-      title: "6. Selecione até as condições pré-existentes, caso possuir:",
-      alternatives: [
-        "Sedentarismo",
-        "Obesidade",
-        "Hipertensão",
-        "Colesterol Alto",
-        "Diabetes",
-        "Insuficiência Renal",
-      ],
-      multipleChoiceQuestion: true,
-    },
-    {
-      title: "7. Possui histórico de doença cardíaca em pais e/ou irmãos?",
-      alternatives: ["SIM", "NÃO"],
-    },
-    {
-      title: "8. É fumante?",
-      alternatives: ["SIM", "NÃO"],
-    },
   ];
   const title = "Hábitos & Saúde";
   const subTitle =
