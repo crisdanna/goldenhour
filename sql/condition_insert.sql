@@ -6,3 +6,6 @@ INSERT INTO public.condition(description, name, score) VALUES ('Sedentarismo', '
 INSERT INTO public.condition(description, name, score) VALUES ('Colesterol alto', 'Colesterol alto', 2);
 INSERT INTO public.condition(description, name, score) VALUES ('Insuficiência renal', 'Insuficiência renal', 2);
 INSERT INTO public.condition(description, name, score) VALUES ('Depressão', 'Depressão', 1);
+INSERT INTO public.condition(description, name, score) VALUES ('Alergia a medicação', 'Alergia', 1);
+INSERT INTO public.condition(description, name, score) VALUES ('Medicamento de uso contínuo', 'Medicamento', 1);
+INSERT INTO public.condition(description, name, score) VALUES ('Histórico familiar', 'Histórico', 2);
