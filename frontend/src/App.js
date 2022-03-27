@@ -1,8 +1,12 @@
-import Router from 'router'
+import Router from "router";
+import defaultTheme from "themes/default";
+import { ThemeProvider } from "@material-ui/styles";
 
 function App() {
   return (
-    <Router/>
+    <ThemeProvider theme={defaultTheme}>
+      <Router />
+    </ThemeProvider>
   );
 }
 

@@ -81,7 +81,7 @@ const HabitsAndHealth = () => {
         <Grid item container direction="column" style={{ height: "100%" }}>
           <Grid item style={{ marginTop: 10, marginBottom: 10 }}>
             <Container>
-              <Typography style={{ color: "#0165B6" }}>{title}</Typography>
+              <Typography color='primary'>{title}</Typography>
               <Typography
                 variant="subtitle1"
                 style={{ fontStyle: "italic", fontSize: 10 }}
@@ -172,7 +172,6 @@ const HabitsAndHealth = () => {
               style={{
                 width: "100%",
                 height: "100%",
-                backgroundColor: "#0165B6",
               }}
             >
               {buttonText}
