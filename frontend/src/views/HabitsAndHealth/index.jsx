@@ -2,10 +2,12 @@ import React from "react";
 import {
   Button,
   Container,
+  Checkbox,
   Grid,
   FormControl,
   FormLabel,
   FormControlLabel,
+  FormGroup,
   Radio,
   RadioGroup,
   Typography,
@@ -99,36 +101,63 @@ const HabitsAndHealth = () => {
                       >
                         {question.title}
                       </FormLabel>
-                      <RadioGroup
-                        row
-                        //aria-label="gender"
-                        name={question.title}
-                        //value={value}
-                        //onChange={handleChange}
-                      >
-                        <Grid
-                          item
-                          container
-                          style={{ marginLeft: 20, marginRight: 20 }}
-                        >
-                          {question.alternatives.map((alternative) => (
-                            <Grid item xs={6} style={{}}>
-                              <FormControlLabel
-                                key={alternative}
-                                value={alternative}
-                                label={
-                                  <Typography
-                                    style={{ fontSize: 12, color: "#424244" }}
-                                  >
-                                    {alternative}
-                                  </Typography>
-                                }
-                                control={<Radio />}
-                              />
+
+                      {question.multipleChoiceQuestion ? (
+                        <>
+                          <FormGroup>
+                            <Grid
+                              item
+                              container
+                              style={{ marginLeft: 20, marginRight: 20 }}
+                            >
+                              {question.alternatives.map((alternative) => (
+                                <Grid item xs={6} style={{}}>
+                                  <FormControlLabel
+                                    control={<Checkbox />}
+                                    name={alternative}
+                                    value={alternative}
+                                    label={
+                                      <Typography
+                                        style={{
+                                          fontSize: 12,
+                                          color: "#424244",
+                                        }}
+                                      >
+                                        {alternative}
+                                      </Typography>
+                                    }
+                                  />
+                                </Grid>
+                              ))}
                             </Grid>
-                          ))}
-                        </Grid>
-                      </RadioGroup>
+                          </FormGroup>
+                        </>
+                      ) : (
+                        <RadioGroup row name={question.title}>
+                          <Grid
+                            item
+                            container
+                            style={{ marginLeft: 20, marginRight: 20 }}
+                          >
+                            {question.alternatives.map((alternative) => (
+                              <Grid item xs={6} style={{}}>
+                                <FormControlLabel
+                                  key={alternative}
+                                  value={alternative}
+                                  label={
+                                    <Typography
+                                      style={{ fontSize: 12, color: "#424244" }}
+                                    >
+                                      {alternative}
+                                    </Typography>
+                                  }
+                                  control={<Radio />}
+                                />
+                              </Grid>
+                            ))}
+                          </Grid>
+                        </RadioGroup>
+                      )}
                     </FormControl>
                   </Grid>
                 ))}
