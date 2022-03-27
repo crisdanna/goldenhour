@@ -67,6 +67,8 @@ const HabitsAndHealth = () => {
     },
   ];
   const title = "Hábitos & Saúde";
+  const subTitle =
+    "*Este questionário tem o objetivo de acompanhar os seus hábitos de saúde diários, procure sempre mantê-lo atualizado!";
   const buttonText = "Atualizar informações";
 
   return (
@@ -84,8 +86,7 @@ const HabitsAndHealth = () => {
                 variant="subtitle1"
                 style={{ fontStyle: "italic", fontSize: 10 }}
               >
-                *Este questionário tem o objetivo de acompanhar os seus hábitos
-                de saúde diários, procure sempre mantê-lo atualizado!
+                {subTitle}
               </Typography>
             </Container>
           </Grid>
