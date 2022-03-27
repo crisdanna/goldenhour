@@ -4,9 +4,9 @@ import { Icon } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 
-const IconButton = ({ imageUrl, name }) => {
+const IconButton = ({ imageUrl, name, ...rest }) => {
   return (
-    <ButtonBase>
+    <ButtonBase  {...rest}>
       <Grid container direction="column">
         <Grid item>
           <Icon style={{ height: 100, width: 100 }}>
