@@ -86,7 +86,7 @@ const EmergencyQuestionnaire = () => {
                               style={{ marginLeft: 20, marginRight: 20 }}
                             >
                               {question.alternatives.map((alternative) => (
-                                <Grid item xs={6} style={{}}>
+                                <Grid item xs={6} key={alternative} style={{}}>
                                   <FormControlLabel
                                     control={<Checkbox color="primary" />}
                                     name={alternative}
@@ -115,9 +115,8 @@ const EmergencyQuestionnaire = () => {
                             style={{ marginLeft: 20, marginRight: 20 }}
                           >
                             {question.alternatives.map((alternative) => (
-                              <Grid item xs={6} style={{}}>
+                              <Grid item xs={6} key={alternative} style={{}}>
                                 <FormControlLabel
-                                  key={alternative}
                                   value={alternative}
                                   label={
                                     <Typography
