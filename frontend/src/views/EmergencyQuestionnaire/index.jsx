@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import EmergencyImage from "assets/emergency-questionnaire.png";
 import Header from "components/Header";
+import IntensityInput from 'components/IntensityInput'
 
 const EmergencyQuestionnaire = () => {
   const questions = [
@@ -135,6 +136,14 @@ const EmergencyQuestionnaire = () => {
                     </FormControl>
                   </Grid>
                 ))}
+
+                <FormLabel
+                  component="legend"
+                  style={{ fontSize: 14, color: "black" }}
+                >
+                  5. Qual a intensidade da sua dor no geral ?
+                </FormLabel>
+                <IntensityInput style={{ marginLeft: 20, marginRight: 20 }} />
               </Container>
             </Grid>
           </Grid>
