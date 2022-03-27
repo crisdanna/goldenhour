@@ -114,7 +114,7 @@ const HabitsAndHealth = () => {
                               {question.alternatives.map((alternative) => (
                                 <Grid item xs={6} style={{}}>
                                   <FormControlLabel
-                                    control={<Checkbox />}
+                                    control={<Checkbox color="primary" />}
                                     name={alternative}
                                     value={alternative}
                                     label={
@@ -152,7 +152,7 @@ const HabitsAndHealth = () => {
                                       {alternative}
                                     </Typography>
                                   }
-                                  control={<Radio />}
+                                  control={<Radio color="primary" />}
                                 />
                               </Grid>
                             ))}
