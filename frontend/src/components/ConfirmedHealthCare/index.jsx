@@ -1,20 +1,9 @@
 import React from "react";
 import { Button, Container, Grid } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-
+import StyledText from 'components/StyledText'
 import logoImage from "assets/logo.png";
 import qrCodeImage from "assets/qr-code.png";
-
-const StyledText = ({ children, color }) => {
-  const theme = useTheme();
-  return (
-    <span
-      style={{ color: color || theme.palette.primary.main, fontWeight: "bold" }}
-    >
-      {children}
-    </span>
-  );
-};
 
 const ConfirmedHealthCare = () => {
   const buttonText = "Encerrar";

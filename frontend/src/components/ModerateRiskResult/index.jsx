@@ -4,20 +4,10 @@ import {
   Container,
   Grid,
 } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-
+import StyledText from 'components/StyledText'
 import IconButton from "components/IconButton";
 import logoImage from "assets/logo.png";
 import ambulanceImage from "assets/ambulance.png";
-
-const StyledText = (props) => {
-  const theme = useTheme();
-  return (
-    <span style={{ color: theme.palette.primary.main, fontWeight: "bold" }}>
-      {props.children}
-    </span>
-  );
-};
 
 const ModerateRiskResult = () => {
   const buttonText = "Notificar hospital";
