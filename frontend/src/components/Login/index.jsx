@@ -8,12 +8,14 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import logoImage from "assets/logo.png";
 
 const Login = ({ sectionName }) => {
   const theme = useTheme();
+  const history = useHistory();
+
   return (
     <Grid container direction="column" style={{ minHeight: "100vh" }}>
       <Grid item>
@@ -98,8 +100,7 @@ const Login = ({ sectionName }) => {
                       data-testid="submit-button"
                       variant="contained"
                       color="primary"
-                      component={RouterLink}
-                      to='/home'
+                      onClick={() => history.push('/home')}
                     >
                       ENVIAR
                     </Button>

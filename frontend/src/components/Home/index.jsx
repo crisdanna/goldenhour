@@ -5,9 +5,11 @@ import MedicalResult from "assets/medical-result.png";
 import PlaceholderRotated from "assets/placeholder-rotated.png";
 import Sheet from "assets/sheet.png";
 import IconButton from "components/IconButton";
-import { Link as RouterLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
+  const history = useHistory();
+
   return (
     <Grid container direction="row" style={{ height: "100%" }}>
       <Grid
@@ -64,9 +66,7 @@ const Home = () => {
               <IconButton
                 imageUrl={Sheet}
                 name={"Hábitos & Saúde"}
-                component={RouterLink}
-                to="/habits-and-health"
-                style={{textAlign: 'center'}}
+                onClick={() => history.push('/habits-and-health')}
               />
             </Grid>
             <Grid
@@ -78,9 +78,7 @@ const Home = () => {
               justifyContent="center"
             >
               <IconButton
-                component={RouterLink}
-                to="/emergency-questionnaire"
-                style={{textAlign: 'center'}}
+                onClick={() => history.push('/emergency-questionnaire')}  
                 imageUrl={MedicalResult}
                 name={"Questionário de Emergência"}
               />
