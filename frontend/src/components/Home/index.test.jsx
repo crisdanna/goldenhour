@@ -15,16 +15,6 @@ afterEach(() => {
   expect(console.error).not.toBeCalled();
 });
 
-it('shows the patient name', () => {
-    render(<Home/>)
-    expect(screen.getByTestId('patient-name',{text: 'Miguel Arcanjo dos Santos'})).toBeInTheDocument()
-})
-
-it('shows the patient ID number', () => {
-    render(<Home/>)
-    expect(screen.getByTestId('patient-id',{text: 'ID: 874521658'})).toBeInTheDocument()
-    
-})
 it('shows the attendance history button', () => {
     render(<Home/>)
     expect(screen.getByRole("button", { name: "Histórico de Atendimento" })).toBeTruthy();
