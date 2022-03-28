@@ -4,9 +4,11 @@ import StyledText from "components/StyledText";
 import IconButton from "components/IconButton";
 import agendaImage from "assets/agenda.png";
 import BaseResultPage from "components/BaseResultPage";
+import { useHistory } from "react-router-dom";
 
 const LowRiskResult = () => {
   const buttonText = "Encerrar";
+  const history = useHistory();
 
   return (
     <BaseResultPage buttonText={buttonText}>
@@ -18,7 +20,7 @@ const LowRiskResult = () => {
         </Container>
       </Grid>
       <Grid item xs align="center" style={{}}>
-        <IconButton imageUrl={agendaImage} name={"Agendar Consulta"} />
+        <IconButton imageUrl={agendaImage} name={"Agendar Consulta"} onClick={_ => { history.push('/home')}} />
       </Grid>
     </BaseResultPage>
   );

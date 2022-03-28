@@ -1,11 +1,8 @@
 import React from "react";
+import LowRiskResult from "components/LowRiskResult";
 
 const Result = () => {
-  return (
-    <>
-      
-    </>
-  );
+  return <LowRiskResult />;
 };
 
 export default Result;

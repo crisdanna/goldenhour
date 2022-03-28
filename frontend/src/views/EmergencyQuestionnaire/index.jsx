@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import { useFormik } from 'formik';
 import moment from 'moment'
+import { useHistory } from "react-router-dom";
 
 import EmergencyImage from "assets/emergency-questionnaire.png";
 import Header from "components/Header";
@@ -24,6 +25,8 @@ const EmergencyQuestionnaire = () => {
   const [symptomLocationList, setSymptomLocationList] = useState([])
   const [symptomDurationList, setSymptomDurationList] = useState([])
   const [symptomList, setSymptomList] = useState([])
+
+  const history = useHistory();
 
   const sendQuestionnaire = async (values) => {
     try {
@@ -133,7 +136,9 @@ const EmergencyQuestionnaire = () => {
         "time":moment().format('HH:mm'), 
         "items": questionnaireItems,
       }
-      sendQuestionnaire(finalValue)
+      sendQuestionnaire(finalValue).then(_ => {
+        history.push('/questionnaire-result')
+      })
     },
   });
 

@@ -17,9 +17,12 @@ import { useFormik } from 'formik';
 import HealthImage from "assets/habits-and-health.png";
 import Header from "components/Header";
 import { getConditionList } from 'services/api'
+import { useHistory } from "react-router-dom";
 
 const HabitsAndHealth = () => {
   const [symptomList, setSymptomList] = useState([])
+
+  const history = useHistory();
 
   const getConditions = async () => {
     let res = null;
@@ -89,6 +92,7 @@ const HabitsAndHealth = () => {
       //   "conditions": values,
       // }
       // sendHealthForm(finalValue)
+      history.push('/home')
     },
   });
 
