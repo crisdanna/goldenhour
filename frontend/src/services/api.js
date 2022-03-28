@@ -43,3 +43,18 @@ export async function postQuestionnaire(data) {
 
   return res
 }
+
+export async function getConditionList() {
+  const res = await axios.get(`${HOST}/healthForm/condition/list`);
+
+  return res;
+}
+
+export async function sendHealthForm(data) {
+  const res = await axios.post(
+    `${HOST}/healthForm`,
+    data
+  )
+
+  return res
+}
