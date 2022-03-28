@@ -51,7 +51,7 @@ const ConfirmedHealthCare = () => {
 
           <Grid item xs style={{ marginTop: 10, marginBottom: 10 }}>
             <Container>
-              Ao chegar apresentar o QR Code gerado atraǘes de seu Socorrista.
+              Ao chegar apresentar o QR Code gerado através de seu Socorrista.
             </Container>
           </Grid>
           <Grid item xs align="center" style={{}}>
