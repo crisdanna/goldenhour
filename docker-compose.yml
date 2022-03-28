@@ -54,4 +54,9 @@ services:
       - db
     links:
       - db:database
+  golden-hour-front:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 8080:3000
   
