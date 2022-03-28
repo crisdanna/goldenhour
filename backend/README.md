@@ -85,6 +85,22 @@ questionnaire
 
 - GET - http://localhost:8085/schwester/questionnaire/score - Calculate the score of a questionnaire. The input is a questionnaire on the following format:
 
+```
+{"patient":{"id":1,"birthDate":"05/15/1983","addresses":[{"id":1}]},
+ "age":38,
+ "date":"02/10/2022",
+ "time":"18:35",
+ "items":[{"symptomId":1,
+           "symptomScore":2,
+           "locationId":2,
+           "locationScore":1,
+           "intensityId":2,
+           "intensityScore":2,
+           "durationId":1,
+           "durationScore":1,
+           "comments":""}]}
+ ```
+
 - POST - http://localhost:8085/schwester/healthForm - Save a health form for a specific patient. JSON:
 
 ```
